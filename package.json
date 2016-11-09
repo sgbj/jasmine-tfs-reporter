@@ -1,0 +1,31 @@
+{
+  "name": "jasmine-tfs-reporter",
+  "version": "1.0.0",
+  "description": "Jasmine/Protractor plugin for reporting test results to TFS",
+  "keywords": [
+    "jasmine",
+    "reporter",
+    "tfs",
+    "vsts",
+    "spec",
+    "protractor"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgbj/jasmine-tfs-reporter.git"
+  },
+  "author": "sgbj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgbj/jasmine-tfs-reporter/issues"
+  },
+  "homepage": "https://github.com/sgbj/jasmine-tfs-reporter#readme",
+  "dependencies": {
+    "mkpath": "^1.0.0",
+    "node-uuid": "^1.4.7"
+  }
+}
