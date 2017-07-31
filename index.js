@@ -21,16 +21,20 @@ function TfsReporter(options) {
     this.suiteStarted = function (suite) {
         currentSuite = suite.fullName;
     };
-
+    this.specStarted = function (spec) {
+        var now = Date.now();
+                                spec.start = new Date(now);
+    };
     this.specDone = function (spec) {
         var now = Date.now();
+                                var duration =  (now - spec.start)/1000;
         testResults.specs.push({
             id: spec.id,
             suite: currentSuite,
             description: spec.description,
-            start: new Date(now),
-            finish: new Date(now + parseFloat(spec.duration) * 1000),
-            time: spec.duration,
+            start: spec.start,
+            finish: new Date(now),
+            time: duration,
             outcome: spec.status == 'passed' ? 'Passed' :
                 spec.status == 'failed' ? 'Failed' :
                 'NotExecuted',
