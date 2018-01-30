@@ -5,6 +5,7 @@ var trx = require('./trx');
 
 function TfsReporter(options) {
 
+    var specTimes = {};
     var testResults;
     var currentSuite = '';
     var outputDir = options && options.outputDir ? options.outputDir : 'testresults';
@@ -22,17 +23,16 @@ function TfsReporter(options) {
         currentSuite = suite.fullName;
     };
     this.specStarted = function (spec) {
-        var now = Date.now();
-                                spec.start = new Date(now);
+        specTimes[spec.id] = { start: new Date() };
     };
     this.specDone = function (spec) {
         var now = Date.now();
-                                var duration =  (now - spec.start)/1000;
+        var duration = (now - specTimes[spec.id].start)/1000;
         testResults.specs.push({
             id: spec.id,
             suite: currentSuite,
             description: spec.description,
-            start: spec.start,
+            start: specTimes[spec.id].start,
             finish: new Date(now),
             time: duration,
             outcome: spec.status == 'passed' ? 'Passed' :
