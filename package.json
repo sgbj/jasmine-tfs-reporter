@@ -1,6 +1,6 @@
 {
   "name": "jasmine-tfs-reporter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Jasmine/Protractor plugin for reporting test results to TFS",
   "keywords": [
     "jasmine",
